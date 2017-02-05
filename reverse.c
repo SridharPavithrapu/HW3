@@ -20,13 +20,37 @@ int main()
 //Function Definition
 char reverse(char *str,int length)
 {
+	int i;
 	char* firstByte = &str[ 0 ];
 	char* lastByte = &str[ length- 1 ];
-	while( firstByte < lastByte ) {
-	char tmp = *firstByte;
-	*firstByte = *lastByte;
-	*lastByte = tmp;
-	++firstByte;
-	--lastByte;}
-	printf("\nReverse String::%s\n",str);
+	while( firstByte < lastByte )
+	{
+		char tmp = *firstByte;
+		*firstByte = *lastByte;
+		*lastByte = tmp;
+		++firstByte;
+		--lastByte;
+	}
+	printf("Reverse String::");
+	for(i=0;i<length;i++)
+	{	
+		if(*str == '\n')
+		{
+			printf("\\n");
+		}
+		else if(*str == '\0')
+		{
+			printf("\\0");
+		}
+		else if(*str == '\t')
+		{
+			printf("\\t");	
+		}
+		else
+		{
+			printf("%c",*str);	
+		}
+		str++;	
+	}
+	printf("\n");		
 }
